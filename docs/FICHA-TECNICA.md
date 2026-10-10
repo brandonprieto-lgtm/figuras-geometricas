@@ -205,3 +205,53 @@ FIN
 - [ ] Dado radio = 0, se lanza `ArgumentOutOfRangeException`
 - [ ] Dado radio = -5, se lanza `ArgumentOutOfRangeException`
 - [ ] Dado radio = 10, el área es 100π (≈ 314.159)
+---
+
+### 5.5 Historia de usuario: US-02 Calcular área de un rectángulo
+
+**Historia:** *Como usuario quiero calcular el área de un rectángulo para conocer su superficie a partir de base y altura.*
+
+### 5.6 Pseudocódigo
+
+```
+INICIO
+
+CLASE Rectangulo HEREDA DE Figura
+    PROPIEDAD Base: decimal
+    PROPIEDAD Altura: decimal
+
+    CONSTRUCTOR(base, altura)
+        SI base <= 0 ENTONCES
+            LANZAR ArgumentOutOfRangeException("La base debe ser mayor a 0")
+        FIN SI
+        SI altura <= 0 ENTONCES
+            LANZAR ArgumentOutOfRangeException("La altura debe ser mayor a 0")
+        FIN SI
+        Base = base
+        Altura = altura
+    FIN CONSTRUCTOR
+
+    FUNCIÓN SOBRESCRITA CalcularArea() RETORNA decimal
+        RETORNAR Base * Altura
+    FIN FUNCIÓN
+FIN CLASE
+
+FIN
+```
+
+### 5.7 Relación entre pseudocódigo y POO
+
+| Pilar POO | Líneas del pseudocódigo | Descripción |
+|---|---|---|
+| **Abstracción** | 3 | `Rectangulo` hereda el contrato de `Figura` |
+| **Encapsulamiento** | 6-14 | Base y altura validadas en el constructor |
+| **Herencia** | 3 | `Rectangulo : Figura` |
+| **Polimorfismo** | 16-18 | `CalcularArea()` sobrescrito con fórmula b×h |
+
+### 5.8 Criterios de aceptación
+
+- [ ] Dado base=4, altura=5, el área es 20
+- [ ] Dado base=0, se lanza `ArgumentOutOfRangeException`
+- [ ] Dado base=-1, se lanza `ArgumentOutOfRangeException`
+- [ ] Dado altura=0, se lanza `ArgumentOutOfRangeException`
+- [ ] Dado altura=-3, se lanza `ArgumentOutOfRangeException`
