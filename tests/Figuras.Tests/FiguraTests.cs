@@ -70,4 +70,39 @@ public class FiguraTests
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => new Rectangulo(4, -3));
     }
+    // ═══════════════════════════════════════════
+    // US-03: Triángulo
+    // ═══════════════════════════════════════════
+
+    [Fact]
+    public void Triangulo_Base6Altura4_CalculaArea12()
+    {
+        var triangulo = new Triangulo(6, 4);
+        Assert.Equal(12, triangulo.CalcularArea());
+    }
+
+    [Fact]
+    public void Triangulo_Base10Altura5_CalculaArea25()
+    {
+        var triangulo = new Triangulo(10, 5);
+        Assert.Equal(25, triangulo.CalcularArea());
+    }
+
+    [Fact]
+    public void Triangulo_BaseCero_LanzaExcepcion()
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Triangulo(0, 4));
+    }
+
+    [Fact]
+    public void Triangulo_AlturaCero_LanzaExcepcion()
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Triangulo(6, 0));
+    }
+
+    [Fact]
+    public void Triangulo_AlturaNegativa_LanzaExcepcion()
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Triangulo(6, -2));
+    }
 }
