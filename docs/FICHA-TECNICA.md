@@ -369,3 +369,67 @@ El desarrollo de este proyecto permitió aplicar los fundamentos de la programac
 5. **Metodología ágil:** El uso de ramas por feature, PRs, Issues y tablero Kanban estructuró el trabajo en incrementos pequeños y verificables.
 
 Este flujo de trabajo es replicable en cualquier proyecto profesional de software.
+---
+
+## 6. Metodología ágil aplicada
+
+### 6.1 Historias de usuario completadas
+
+| ID | Historia | Pruebas | Estado |
+|---|---|---|---|
+| US-01 | Calcular área de un círculo | 4 | ✅ |
+| US-02 | Calcular área de un rectángulo | 5 | ✅ |
+| US-03 | Calcular área de un triángulo | 5 | ✅ |
+| **Total** | | **14** | ✅ |
+
+### 6.2 Ciclo TDD aplicado por historia
+
+| Historia | Commit rojo | Commit verde |
+|---|---|---|
+| US-01 Círculo | `e3c12dd4` | `7349f31` |
+| US-02 Rectángulo | `709e597` | `2a1d303` |
+| US-03 Triángulo | `649c98b` | `88e4aed` |
+
+### 6.3 Pipeline CI
+
+El archivo `.github/workflows/ci.yml` ejecuta automáticamente en cada push a `main` y en cada PR:
+
+1. Descarga el código
+2. Instala .NET 8
+3. Compila `Figuras.Core.csproj` en Release
+4. Ejecuta las 14 pruebas
+
+Si alguna prueba falla, el PR queda bloqueado.
+
+---
+
+## 7. Autoevaluación
+
+| Criterio | ¿Cumplido? | Observaciones |
+|---|---|---|
+| Modelé clases con atributos esenciales | ✅ | `Figura`, `Circulo`, `Rectangulo`, `Triangulo` |
+| Apliqué los 4 pilares de POO | ✅ | Abstracción, Herencia, Polimorfismo, Encapsulamiento |
+| Documenté con XML los métodos públicos | ✅ | Todas las clases y métodos |
+| Configuré correctamente el proyecto | ✅ | .NET 8 LTS, xUnit, GitHub Actions |
+| Usé Git para versionar | ✅ | Ramas por feature, PRs, commits atómicos |
+| Construí pseudocódigo fundamentado | ✅ | Sección 5 con tablas POO |
+| Apliqué TDD (rojo → verde) | ✅ | 3 ciclos completos |
+| Usé Integración Continua | ✅ | Pipeline en cada PR |
+
+---
+
+## 8. Conclusiones
+
+El desarrollo de este proyecto permitió aplicar los fundamentos de la programación avanzada mediante un enfoque disciplinado y ágil:
+
+1. **POO en la práctica:** La clase abstracta `Figura` definió un contrato que las clases `Circulo`, `Rectangulo` y `Triangulo` implementaron, demostrando los 4 pilares fundamentales.
+
+2. **TDD como disciplina:** Cada historia comenzó con pruebas que fallaban, seguidas por la implementación mínima para pasarlas, garantizando código verificado desde el inicio.
+
+3. **Integración Continua:** El pipeline de GitHub Actions detecta errores automáticamente antes del merge, reduciendo el riesgo de bugs.
+
+4. **Documentación XML:** Todos los métodos públicos están documentados, facilitando el mantenimiento y el trabajo en equipo.
+
+5. **Metodología ágil:** El uso de ramas por feature, PRs, Issues y tablero Kanban estructuró el trabajo en incrementos pequeños y verificables.
+
+Este flujo de trabajo es replicable en cualquier proyecto profesional de software.
