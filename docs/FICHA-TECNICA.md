@@ -255,3 +255,53 @@ FIN
 - [ ] Dado base=-1, se lanza `ArgumentOutOfRangeException`
 - [ ] Dado altura=0, se lanza `ArgumentOutOfRangeException`
 - [ ] Dado altura=-3, se lanza `ArgumentOutOfRangeException`
+---
+
+### 5.9 Historia de usuario: US-03 Calcular área de un triángulo
+
+**Historia:** *Como usuario quiero calcular el área de un triángulo para conocer su superficie a partir de base y altura.*
+
+### 5.10 Pseudocódigo
+
+```
+INICIO
+
+CLASE Triangulo HEREDA DE Figura
+    PROPIEDAD Base: decimal
+    PROPIEDAD Altura: decimal
+
+    CONSTRUCTOR(base, altura)
+        SI base <= 0 ENTONCES
+            LANZAR ArgumentOutOfRangeException("La base debe ser mayor a 0")
+        FIN SI
+        SI altura <= 0 ENTONCES
+            LANZAR ArgumentOutOfRangeException("La altura debe ser mayor a 0")
+        FIN SI
+        Base = base
+        Altura = altura
+    FIN CONSTRUCTOR
+
+    FUNCIÓN SOBRESCRITA CalcularArea() RETORNA decimal
+        RETORNAR (Base * Altura) / 2
+    FIN FUNCIÓN
+FIN CLASE
+
+FIN
+```
+
+### 5.11 Relación entre pseudocódigo y POO
+
+| Pilar POO | Líneas del pseudocódigo | Descripción |
+|---|---|---|
+| **Abstracción** | 3 | `Triangulo` hereda el contrato de `Figura` |
+| **Encapsulamiento** | 6-14 | Base y altura validadas en el constructor |
+| **Herencia** | 3 | `Triangulo : Figura` |
+| **Polimorfismo** | 16-18 | `CalcularArea()` sobrescrito con fórmula (b×h)/2 |
+
+### 5.12 Criterios de aceptación
+
+- [ ] Dado base=6, altura=4, el área es 12
+- [ ] Dado base=0, se lanza `ArgumentOutOfRangeException`
+- [ ] Dado base=-1, se lanza `ArgumentOutOfRangeException`
+- [ ] Dado altura=0, se lanza `ArgumentOutOfRangeException`
+- [ ] Dado altura=-2, se lanza `ArgumentOutOfRangeException`
