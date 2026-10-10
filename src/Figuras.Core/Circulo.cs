@@ -14,9 +14,13 @@ public class Circulo : Figura
     /// Crea un nuevo círculo con el radio especificado.
     /// </summary>
     /// <param name="radio">Radio del círculo (mayor a 0).</param>
+    /// <exception cref="ArgumentOutOfRangeException">Si el radio es menor o igual a 0.</exception>
     public Circulo(double radio)
     {
-        throw new NotImplementedException();
+        if (radio <= 0)
+            throw new ArgumentOutOfRangeException(nameof(radio), "El radio debe ser mayor a 0.");
+
+        Radio = radio;
     }
 
     /// <summary>
@@ -25,6 +29,6 @@ public class Circulo : Figura
     /// <returns>Área calculada (π × radio²).</returns>
     public override double CalcularArea()
     {
-        throw new NotImplementedException();
+        return Math.PI * Radio * Radio;
     }
 }
